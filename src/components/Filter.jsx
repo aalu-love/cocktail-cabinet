@@ -41,33 +41,37 @@ function Filter({ setFilter, filterType, setFilterType, filter }) {
 		<div className='filter'>
 			<input type='text' placeholder='Search by name...' onChange={handleSearch} value={selectedOption || filter || ''} />
 			<div className='btn-group'>
-				<label>
-					<input type='radio' value='ingredient' checked={filterType === 'ingredient'} onChange={handleFilterTypeChange} />
-					Ingredient
-				</label>
-				<label>
-					<input type='radio' value='alcoholic' checked={filterType === 'alcoholic'} onChange={handleFilterTypeChange} />
-					Alcoholic
-				</label>
-				<label>
-					<input type='radio' value='category' checked={filterType === 'category'} onChange={handleFilterTypeChange} />
-					Category
-				</label>
-				<label>
-					<input type='radio' value='glass' checked={filterType === 'glass'} onChange={handleFilterTypeChange} />
-					Glass
-				</label>
-				<select onChange={handleOptionChange} value={selectedOption}>
-					<option value=''>Select an option</option>
-					{options.map((option, index) => (
-						<option key={`${option}_name_${index}`} value={option?.strAlcoholic}>
-							{option?.strGlass || option?.strAlcoholic || option?.strCategory || option?.strIngredient1}
-						</option>
-					))}
-				</select>
-				<button className='clear-btn' onClick={onFilterClear}>
-					Clear
-				</button>
+				<div className='radio-group'>
+					<label>
+						<input type='radio' value='ingredient' checked={filterType === 'ingredient'} onChange={handleFilterTypeChange} />
+						Ingredient
+					</label>
+					<label>
+						<input type='radio' value='alcoholic' checked={filterType === 'alcoholic'} onChange={handleFilterTypeChange} />
+						Alcoholic
+					</label>
+					<label>
+						<input type='radio' value='category' checked={filterType === 'category'} onChange={handleFilterTypeChange} />
+						Category
+					</label>
+					<label>
+						<input type='radio' value='glass' checked={filterType === 'glass'} onChange={handleFilterTypeChange} />
+						Glass
+					</label>
+				</div>
+				<div className='selector-class'>
+					<select onChange={handleOptionChange} value={selectedOption}>
+						<option value=''>Select an option</option>
+						{options.map((option, index) => (
+							<option key={`${option}_name_${index}`} value={option?.strAlcoholic}>
+								{option?.strGlass || option?.strAlcoholic || option?.strCategory || option?.strIngredient1}
+							</option>
+						))}
+					</select>
+					<button className='clear-btn' onClick={onFilterClear}>
+						Clear
+					</button>
+				</div>
 			</div>
 		</div>
 	);

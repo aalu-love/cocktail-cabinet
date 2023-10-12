@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import DetailPage from './components/DetailPage.jsx';
-import './App.css';
+import './App.scss';
 
 function App() {
 	return (

@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
 function RandomCocktailCard({ randomCocktail }) {
+	if (randomCocktail?.length == 0) {
+		return (
+			<div className='sugesstion'>
+				<h2>Try Something New</h2>
+				<div className='suggest-loader'></div>
+			</div>
+		);
+	}
+
 	return (
 		<div className='sugesstion'>
 			<h2>Try Something New</h2>

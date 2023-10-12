@@ -50,7 +50,7 @@ function MainPage() {
 						<CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
 					))}
 				</div>
-				{randomCocktail.length > 0 && <RandomCocktailCard randomCocktail={randomCocktail} />}
+				<RandomCocktailCard randomCocktail={randomCocktail} />
 			</div>
 		</div>
 	);

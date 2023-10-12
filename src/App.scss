@@ -1,0 +1,272 @@
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/* Updated styles for the main page */
+.main-page {
+	text-align: center;
+	padding: 20px;
+
+	.filter {
+		min-width: 100%;
+		input[type='text'] {
+			width: 90%;
+			padding: 10px;
+			margin: 10px 0;
+
+			&:focus-visible,
+			&:focus-within {
+				outline: none;
+			}
+		}
+
+		.btn-group {
+			display: flex;
+			justify-content: center;
+			margin-block: 20px;
+			--btn_height: 30px;
+
+			.radio-group {
+				padding: 5px;
+			}
+
+			.selector-class {
+				select {
+					min-height: var(--btn_height);
+					min-width: 250px;
+					margin-inline: 15px;
+					background-color: #fff;
+
+					option {
+						height: var(--btn_height);
+						padding-block: 1rem;
+					}
+
+					&:focus-visible,
+					&:focus {
+						outline: none;
+					}
+				}
+
+				button {
+					min-width: 80px;
+					min-height: var(--btn_height);
+					border-radius: 3px;
+					background-color: #000;
+					color: white;
+					border: none;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.left-container {
+		display: flex;
+		justify-content: center;
+
+		.cocktail-list {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr); /* Create 3 columns */
+			gap: 20px; /* Add gap between columns */
+
+			.cocktail-card {
+				border: 1px solid #ccc;
+				padding: 10px;
+				max-width: 200px;
+				text-align: left;
+				text-decoration: none;
+				color: #000;
+				transition: all 0.5s;
+
+				&:hover {
+					transform: scale(1.02);
+					box-shadow: 2px 2px teal;
+				}
+
+				img {
+					max-width: calc(100% - 50px);
+					transition: all ease-in-out 0.5s;
+				}
+
+				.image-container {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+
+		.sugesstion {
+			max-width: 250px;
+			border: 1px solid #ccc;
+			padding-inline-start: 1rem;
+			margin-inline-start: 1em;
+			padding-inline: 0.5em;
+			.suggest-loader {
+				background-color: #555;
+				height: 100%;
+			}
+
+			.random-cocktail {
+				text-decoration: none;
+				color: #000;
+
+				.suggest {
+					min-width: inherit;
+					background-position: center;
+					overflow: hidden;
+					display: flex;
+					flex-direction: column;
+					min-height: inherit;
+					justify-content: center;
+					align-items: flex-start;
+
+					&:hover {
+						img {
+							filter: opacity(0.6);
+						}
+					}
+
+					h3 {
+						position: absolute;
+						padding-inline-start: 10px;
+					}
+
+					img {
+						translate: -30%;
+						transition: all 0.5s;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Additional styles for the DetailPage component */
+.detail-page {
+	width: 80vw;
+	text-align: center;
+	padding: 20px;
+
+	.cocktail-details {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		margin-top: 20px;
+
+		img {
+			margin-right: 20px;
+			border: 5px solid;
+			padding: 5px;
+		}
+
+		.info {
+			text-align: left;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.btn-group {
+		flex-direction: column;
+		.selector-class {
+			select {
+				min-height: 30px !important;
+				width: 30px !important;
+			}
+			button {
+				min-width: 80px !important;
+			}
+		}
+	}
+
+	.left-container {
+		flex-direction: column-reverse;
+
+		.sugesstion {
+			max-width: 100% !important;
+			margin-inline: 0% !important;
+			display: flex;
+			justify-content: space-around;
+			padding: 5px;
+			margin: 5px;
+
+			h3 {
+				display: none;
+			}
+
+			.suggest,
+			.image-wrapper,
+			img {
+				height: 80px;
+			}
+
+			.random-cocktail {
+				display: block;
+				height: 80px;
+				width: 80px;
+
+				img {
+					translate: 0 !important;
+				}
+			}
+		}
+	}
+
+	.detail-page {
+		padding: 5px;
+		width: 100%;
+
+		.cocktail-details {
+			display: block;
+			margin: 0;
+			padding-top: 30px;
+
+			.left-container {
+				display: flex;
+				align-items: center;
+
+				img {
+					width: 80%;
+					margin-right: 20px;
+					border: 5px solid;
+					padding: 5px;
+				}
+			}
+
+			.right-container {
+				display: flex;
+				justify-content: center;
+				padding-inline: 38px;
+
+				.info {
+					h1 {
+						font-size: 5rem;
+						margin: 0;
+					}
+
+					p {
+						margin-block: 3px;
+					}
+				}
+			}
+		}
+	}
+}
