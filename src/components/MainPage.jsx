@@ -45,11 +45,17 @@ function MainPage() {
 			<h1>🍸Cocktail Cabinet🍹</h1>
 			<Filter filter={filter} setFilter={setFilter} filterType={filterType} setFilterType={setFilterType} />
 			<div className='left-container'>
-				<div className='cocktail-list'>
-					{cocktails.map(cocktail => (
-						<CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
-					))}
-				</div>
+				{cocktails?.length > 0 ? (
+					<div className='cocktail-list'>
+						{cocktails.map(cocktail => (
+							<CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
+						))}
+					</div>
+				) : (
+					<div className='not-found'>
+						<h1>No Result Found</h1>
+					</div>
+				)}
 				<RandomCocktailCard randomCocktail={randomCocktail} />
 			</div>
 		</div>

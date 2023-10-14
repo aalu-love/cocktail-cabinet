@@ -85,6 +85,7 @@
 			display: grid;
 			grid-template-columns: repeat(3, 1fr); /* Create 3 columns */
 			gap: 20px; /* Add gap between columns */
+			height: fit-content;
 
 			.cocktail-card {
 				border: 1px solid #ccc;
@@ -94,10 +95,13 @@
 				text-decoration: none;
 				color: #000;
 				transition: all 0.5s;
+				background: aliceblue;
+				min-height: 250px;
+				max-height: fit-content;
 
 				&:hover {
 					transform: scale(1.02);
-					box-shadow: 2px 2px teal;
+					box-shadow: 8px 8px teal;
 				}
 
 				img {
@@ -119,6 +123,8 @@
 			padding-inline-start: 1rem;
 			margin-inline-start: 1em;
 			padding-inline: 0.5em;
+			background: aliceblue;
+
 			.suggest-loader {
 				background-color: #555;
 				height: 100%;
@@ -156,6 +162,10 @@
 				}
 			}
 		}
+
+		.not-found {
+			width: 51%;
+		}
 	}
 }
 
@@ -185,11 +195,22 @@
 
 @media screen and (max-width: 768px) {
 	.btn-group {
+		margin-block: 5px !important;
 		flex-direction: column;
+
+		.radio-group {
+			display: flex;
+			justify-content: space-around;
+		}
+
 		.selector-class {
+			display: flex;
+			justify-content: space-between;
+
 			select {
 				min-height: 30px !important;
 				width: 30px !important;
+				margin: 0 !important;
 			}
 			button {
 				min-width: 80px !important;
@@ -203,10 +224,13 @@
 		.sugesstion {
 			max-width: 100% !important;
 			margin-inline: 0% !important;
-			display: flex;
-			justify-content: space-around;
 			padding: 5px;
 			margin: 5px;
+			margin-bottom: 10px;
+
+			h2 {
+				margin-block: 7px;
+			}
 
 			h3 {
 				display: none;
@@ -218,21 +242,36 @@
 				height: 80px;
 			}
 
-			.random-cocktail {
-				display: block;
-				height: 80px;
-				width: 80px;
+			.random-list {
+				display: flex;
+				.random-cocktail {
+					display: block;
+					height: 80px;
+					width: 80px;
+					margin: 2px;
 
-				img {
-					translate: 0 !important;
+					display: flex;
+					img {
+						translate: 0 !important;
+					}
 				}
+			}
+		}
+
+		.cocktail-list {
+			grid-template-columns: repeat(1, 1fr) !important;
+
+			.cocktail-card {
+				max-width: 100% !important;
 			}
 		}
 	}
 
 	.detail-page {
-		padding: 5px;
+		padding: 0;
+		margin: 0;
 		width: 100%;
+		height: 100vh;
 
 		.cocktail-details {
 			display: block;
