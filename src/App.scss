@@ -20,12 +20,14 @@
 
 .app {
 	height: 100vh;
+	background: linear-gradient(149deg,rgba(131,58,180,1) 0%,rgba(253,29,29,1) 50%,rgba(252,176,69,1) 100%);
 }
 
 /* Updated styles for the main page */
 .main-page {
 	text-align: center;
 	padding: 20px;
+	background: linear-gradient(149deg,rgba(131,58,180,1) 0%,rgba(253,29,29,1) 50%,rgba(252,176,69,1) 100%);
 
 	.filter {
 		min-width: 100%;
