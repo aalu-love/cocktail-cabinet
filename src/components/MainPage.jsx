@@ -30,7 +30,13 @@ function MainPage() {
 				fetchFunction = fetchCocktails(filter);
 		}
 
-		fetchFunction.then(data => setCocktails(data || [])).catch(error => console.error(error));
+		fetchFunction.then(data => {
+			if (data === 'no data found') {
+				setCocktails([]);
+			} else {
+				setCocktails(data || []);
+			}
+		}).catch(error => console.error(error));
 	}, [filter]);
 
 	useEffect(() => {
